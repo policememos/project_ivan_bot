@@ -2,6 +2,7 @@ import asyncio
 import sys
 from os import getenv
 import logging
+from logging.handlers import RotatingFileHandler
 
 from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
@@ -13,7 +14,10 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",  # Формат сообщения,
     handlers=[
-        logging.FileHandler("tg_bot_users.log", encoding="utf-8"),  # Важно: encoding="utf-8"
+        RotatingFileHandler(
+            "/home/project_ivan_bot/tg_bot_users.log",
+            encoding="utf-8"
+        ),
         logging.StreamHandler()  # Вывод в консоль
     ]
 )
