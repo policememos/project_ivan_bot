@@ -47,7 +47,7 @@ async def command_start_handler(message: Message) -> None:
     first_name = user.first_name  # Имя (если есть)
     last_name = user.last_name  # Фамилия (если есть)
     username = user.username
-    logger.info("start<- %s, %s, %s | Имя, Фамилия, Никнейм", first_name, last_name, username)
+    logger.info("start<- %s, %s, %s, %s | Имя, Фамилия, Никнейм, id", first_name, last_name, username, html.bold(message.chat.id))
 
     await message.answer(f"Привет! Ваш chat id: {html.bold(message.chat.id)}")
 
